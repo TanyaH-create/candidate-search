@@ -1,7 +1,10 @@
+//CandidateSearch.tsx
+
 import { useState, useEffect } from 'react';
-import { searchGithub, searchGithubUser } from '../api/API';
+//import { searchGithub, searchGithubUser } from '../api/API';
+import { searchGithub } from '../api/API';
 //import interface
-import {Candidate} from './interfaces/Candidate.interface';
+import {Candidate} from '../interfaces/Candidate.interface';
 
 const CandidateSearch = () => {
    //1. Conduct search for a list of candidates
@@ -13,7 +16,7 @@ const CandidateSearch = () => {
    const [candidates, setCandidates] = useState<Candidate[]>([]);
    //Display current candidate, update after (+) (-) 
    //if no candidates (or no more in array) set to empty. 
-   const [currentCandidate, setCurrentCandidate] = useState<Candidate | ''>('');
+   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(null);
    //save potential candidates
    const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
 
@@ -35,8 +38,9 @@ const CandidateSearch = () => {
     //only run once on render
   }, []);
 
+
 // Add to saved candidates array:
-  const saveCandidate = () {
+  const saveCandidate = () => {
     if (currentCandidate) {
        setSavedCandidates([...savedCandidates, currentCandidate]) 
        //make next candidate the current candidate
@@ -47,15 +51,16 @@ const CandidateSearch = () => {
   //create new array without the current candidate. Load that array as candidates
   //i.e. remove the current candidate from candidate array
   //then set the next candidate as current candidate
-  const nextCandidate = () {
+  const nextCandidate = () => {
     const nextCandidates = candidates.slice(1);
     setCandidates(nextCandidates)
-    setCurrentCandidate(nextCandidates[0] || '');
+    setCurrentCandidate(nextCandidates[0] || null);
   };
 
 
   return (
-  <main>
+  <>
+  
     <h1>CandidateSearch</h1>;
      {/*If there is a current candidate, display a "card" with info */}
     {currentCandidate ? (
@@ -80,9 +85,11 @@ const CandidateSearch = () => {
          // no more candidates left to view
          <p>No more candidates available to view</p>
      )};
-     
 
-  </main>
+
+  </>
   );
+};
 
 export default CandidateSearch;
+
