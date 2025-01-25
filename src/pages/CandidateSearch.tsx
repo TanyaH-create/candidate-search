@@ -15,7 +15,7 @@ const CandidateSearch = () => {
    //if no candidates (or no more in array) set to empty. 
    const [currentCandidate, setCurrentCandidate] = useState<Candidate | ''>('');
    //save potential candidates
-   const [savedCandidates, setSavedCandidates] = usedState<Candidate[]>([]);
+   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
 
    
   //create useEffect hook to fetch data from gitHub using
@@ -35,8 +35,23 @@ const CandidateSearch = () => {
     //only run once on render
   }, []);
 
-// Add to potetial candidates or load the next candidate:
+// Add to saved candidates array:
+  const saveCandidate = () {
+    if (currentCandidate) {
+       setSavedCandidates([...savedCandidates, currentCandidate]) 
+       //make next candidate the current candidate
+       nextCandidate();  
+    }
+  };
 
+  //create new array without the current candidate. Load that array as candidates
+  //i.e. remove the current candidate from candidate array
+  //then set the next candidate as current candidate
+  const nextCandidate = () {
+    const nextCandidates = candidates.slice(1);
+    setCandidates(nextCandidates)
+    setCurrentCandidate(nextCandidates[0] || '');
+  };
 
 
   return (
@@ -57,7 +72,7 @@ const CandidateSearch = () => {
          <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">Profile</a>
           <div>
             <button onClick={saveCandidate}>+</button>
-            <button onClick={showNextCandidate}>-</button>
+            <button onClick={nextCandidate}>-</button>
           </div>
         </div>
     
@@ -66,6 +81,7 @@ const CandidateSearch = () => {
          <p>No more candidates available to view</p>
      )};
      
+
   </main>
   );
 
