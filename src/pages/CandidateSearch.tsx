@@ -112,7 +112,8 @@ return (
         <p>Company: {currentCandidate.company}</p>
         <br />
         <p>Bio: {currentCandidate.bio}</p>
-        <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">Profile</a>
+        <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">
+        <img src="./src/assets/images/github-mark-white.png" alt="GitHib Logo" className="logo-project" /></a>
         <div className='buttons'>
           <button className='button plus' onClick={saveCandidate}>+</button>
           <button className='button minus' onClick={nextCandidate}>-</button>

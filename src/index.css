@@ -250,6 +250,9 @@ table {
 td {
   padding: 8px;
   display: table-cell; /* Make sure the cells stay in the table structure by default */
+  word-wrap: break-word;  /*wrap text in cell so does not overlap adjacent cells*/
+  overflow-wrap: break-word;  /*fallback wrapping fr modern browsers*/
+  white-space: normal; /*allows wrapping*/
 }
 
 /* Center content inside cells */
