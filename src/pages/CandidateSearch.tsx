@@ -35,6 +35,7 @@ const CandidateSearch = () => {
     };
     //call function
     fetchCandidates();
+    console.log({candidates});
     //only run once on render
   }, []);
 
