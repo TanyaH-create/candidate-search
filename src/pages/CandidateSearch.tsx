@@ -127,6 +127,6 @@ return (
   </main>
 );
 };
-
+bo
 export default CandidateSearch;
 
