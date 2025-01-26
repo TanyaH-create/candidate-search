@@ -20,6 +20,20 @@ const CandidateSearch = () => {
   //save potential candidates
   const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
 
+  //Local Storage 
+  // Load saved candidates from local storage on mount
+  useEffect(() => {
+    const savedCandidateData = localStorage.getItem('savedCandidates');
+    if (savedCandidateData) {
+      setSavedCandidates(JSON.parse(savedCandidateData));
+    }
+  }, []);
+
+  // Save `savedCandidates` to local storage whenever it updates
+  useEffect(() => {
+    localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
+  }, [savedCandidates]);
+
 
   //create useEffect hook to fetch data from gitHub using
   //
