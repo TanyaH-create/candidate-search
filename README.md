@@ -20,6 +20,10 @@ The Candidate Search application is a React-based web application developed with
 - **Reject Candidates:** Remove saved candidates from the saved potential candidate list.
 - **Responsive Design:** Optimized for various screen sizes and devices
 
+- 
+![SearchComplete](https://github.com/user-attachments/assets/4434c3a6-52dd-4e7e-9f18-397238f35cfc)  ![NoMoreCandidates](https://github.com/user-attachments/assets/ea7d2039-baf1-4f05-b888-8aa891edd35b)
+
+![NoSaved](https://github.com/user-attachments/assets/c96be268-9364-46dd-ba31-48c53e372775)  ![Table](https://github.com/user-attachments/assets/ea9f3e98-ca9a-479b-b9d7-14e66827a8ca)
 
 
 ## Installation
