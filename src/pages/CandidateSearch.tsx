@@ -1,10 +1,11 @@
 //CandidateSearch.tsx
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 //import { searchGithub, searchGithubUser } from '../api/API';
 import { searchGithub, searchGithubUser } from '../api/API';
 //import interface
 import { Candidate } from '../interfaces/Candidate.interface';
+import SavedCandidatesContext from '../components/SavedCandidatesContext';
 
 const CandidateSearch = () => {
   //1. Conduct search for a list of candidates
@@ -17,23 +18,11 @@ const CandidateSearch = () => {
   //Display current candidate, update after (+) (-) 
   //if no candidates (or no more in array) set to empty. 
   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(null);
-  //save potential candidates
-  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
-
-  //Local Storage 
-  // Load saved candidates from local storage on mount
-  useEffect(() => {
-    const savedCandidateData = localStorage.getItem('savedCandidates');
-    if (savedCandidateData) {
-      setSavedCandidates(JSON.parse(savedCandidateData));
-    }
-  }, []);
-
-  // Save `savedCandidates` to local storage whenever it updates
-  useEffect(() => {
-    localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates));
-  }, [savedCandidates]);
-
+ 
+   // Access savedCandidates and its setter from the context
+   const { savedCandidates, setSavedCandidates } = useContext(SavedCandidatesContext);
+ 
+  
 
   //create useEffect hook to fetch data from gitHub using
   //
