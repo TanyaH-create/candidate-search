@@ -36,15 +36,18 @@ const SavedCandidates = () => {
             {/*map over the saved candidates array and add each as a row */}
              {savedCandidates.map((candidate: Candidate) => (
               <tr key={candidate.id}>
-                <td><img src={candidate.avatar_url} alt={candidate.name} width={50} style={{ borderRadius: '50%' }} /></td>
-                <td>{candidate.name}
+                <td className='td-image'><img src={candidate.avatar_url} alt={candidate.name} width={50} style={{ borderRadius: '50%' }} /></td>
+                <td data-label="Name">{candidate.name}
                   <br />{`(${candidate.username})`}
                 </td>
-                <td>{candidate.location}</td>
-                <td>{candidate.email || 'N/A'}</td>
-                <td>{candidate.company || 'N/A'}</td>
-                <td><a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Link</a></td>
-                <td><button onClick={() => rejectCandidate(candidate.id)}>Reject</button></td>
+                <td data-label='location'>{candidate.location}</td>
+                <td data-label='email'>{candidate.email}</td>
+                <td data-label='company'>{candidate.company}</td>
+                <td data-label='bio'>{candidate.bio}</td>
+                <td className='td-image'><a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
+                          <img src="./src/assets/images/github-mark-white.png" alt="GitHib Logo" className="logo-project" />
+                  </a></td>
+                <td className='td-image'><button className = 'reject'onClick={() => rejectCandidate(candidate.id)}>-</button></td>
               </tr>
              ))
              }
