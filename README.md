@@ -5,7 +5,6 @@ The Candidate Search application is a React-based web application developed with
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
-- [Useage](#useage)
 - [Deployed Application](#deployed-application) 
 - [Technologies Used](#technology-used)
 - [Contributing](#contributing)
