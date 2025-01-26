@@ -1,33 +1,72 @@
-# React + TypeScript + Vite
+# Candidate Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Candidate Search application is a React-based web application developed with Typescript. It allows employers to search and evaluate candidates by retrieving data from the GitHub API. The application enables users to save potential candidates to a list that is saved in local storage on their machine. They can view their information from a formatted table.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Useage](#useage)
+- [Deployed Application](#deployed-application) 
+- [Technologies Used](#technology-used)
+- [Contributing](#contributing)
+- [Questions](#questions)
 
-* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
-* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Features
+- **Retrieve Candidate Information:** Upon loading the applicatication, thirty candidates are retrieved and displayed one at a time on  the page. Displays the cadidate's name, username, location, avatar, email, GitHub profile URL, company information and bio.
+- **Save Candidates:** Save potential candidates to a persistent list for fututre reference.
+- **Skip Candidates:** Skip a candidate without saving their information.
+- **Local Storage:** Ensures the  list of saved candidates persists across sessions.
+- **Reject Candidates:** Remove saved candidates from the saved potential candidate list.
+- **Responsive Design:** Optimized for various screen sizes and devices
 
-If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-* Configure the top-level `parserOptions` property as follows:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation
+If you'd like to clone the repository and run the project locally:
 
-* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
-* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
-* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
+1. Clone the repository to your local machine:
+   ```bash
+   git clone git@github.com:TanyaH-create/candidate-search.git
+2. Navigate to the project directory 
+   ```bash
+   cd candidate-search
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+3. Install required dependencies:
+   ```bash
+   npm install
+
+4. The application retrieves data from the GitHub API. Ensure you have created a fine-grained personal access token with default permissions to increase the API rate limit. This token should be stored in the .env file as VITE_GITHUB_TOKEN in the ./environment directory off the root directory.
+   ~~~bash
+   VITE_GITHUB_TOKEN=your_personal_access_token
+
+5. Run the development server
+   ~~~bash
+   npm run dev
+   ~~~
+6. Open your browser and go to http://localhost:5173 to view the project.
+
+ 
+
+## Deployed Application
+Check out my live portfolio application [here](https://candidate-search-challenge-tlh.onrender.com)
+
+## GitHub Repository
+The source code for this project can be found in my [GitHub Repository](https://github.com/TanyaH-create/candidate-search) .
+
+## Technologies Used
+- Frontend: React, Typescript
+- Storeage: Local Storage
+- Styling: CSS
+- API: GitHub REST API
+- Deployment: Render
+  
+## License
+This project is licensed under the MIT License.
+
+
+## Questions
+
+ If you have any questions, feel free to contact me at dougtanyah@gmail.com.
+
+ You can also find me on GitHub at [TanyaH-create](https://github.com/TanyaH-create).
