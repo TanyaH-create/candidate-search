@@ -15,7 +15,7 @@ const SavedCandidates = () => {
 
   // create a table that displays the candidates when the page is rendered
   return (
-    <>
+    <main>
       
       <h1>Potential Candidates</h1>
       {savedCandidates.length > 0 ? (
@@ -53,7 +53,7 @@ const SavedCandidates = () => {
       ) : (
         <p>There are no potential candidates saved.</p>
       )}
-    </>
+    </main>
   );
 };
 
